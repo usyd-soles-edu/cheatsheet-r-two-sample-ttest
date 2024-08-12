@@ -9,7 +9,7 @@ format:
       light: cosmo # cerulean lumen flatly
       dark: cyborg
     number-sections: false
-    embed-resources: false
+    embed-resources: true
   pdf:
     toc: false
 execute:
