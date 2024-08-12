@@ -1,0 +1,35 @@
+::: {.callout-important collapse="true"}
+## Data structure
+The data should be in a **long format** (also known as tidy data), where each row is an observation and each column is a variable (@fig-format). If your data is not already structured this way, reshape it manually in a spreadsheet program or in R using the `pivot_longer()` function from the `tidyr` package.
+
+
+::: {layout="[ 0.4, -0.1, 0.4 ]" #fig-format}
+
+:::: {#first-column}
+```{r}
+#| echo: false
+possums <- readxl::read_excel("possum_bw.xlsx")
+possums |>
+  head(8) |>
+  gt() |>
+  opt_stylize(style = 5, color = "red")
+```
+:::
+
+::: {#second-column}
+```{r}
+#| echo: false
+possums |>
+  group_by(Sex) |>
+  mutate(row = row_number()) |>
+  pivot_wider(names_from = Sex, values_from = BW) |>
+  select(-row) |>
+  head(4) |>
+  gt() |>
+  opt_stylize(style = 5, color = "red")
+```
+:::
+
+Data should be in long format (left) where each row is an observation and each column is a variable. This is the preferred format for most statistical software. Wide format (right) is also common, but may require additional steps to analyse or visualise in some instances.
+::::
+:::

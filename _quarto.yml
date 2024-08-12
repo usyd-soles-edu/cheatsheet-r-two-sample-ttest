@@ -1,0 +1,16 @@
+# @format
+
+project:
+  title: "boxplot"
+
+format:
+  html:
+    theme:
+      light: cosmo # cerulean lumen flatly
+      dark: cyborg
+    number-sections: false
+    embed-resources: false
+  pdf:
+    toc: false
+execute:
+  freeze: auto
